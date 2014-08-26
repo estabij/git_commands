@@ -1,0 +1,106 @@
+to initialise a remote git repository
+git --bare init
+
+to initialise a local repository
+git init
+
+to add files to the local repository
+git add .
+
+to commit
+git commit -am "message"
+
+setting up a remote
+git remote add zorn estabij@zorn.starbrain.com:git/helloworld.git
+
+pushing to the remote:
+git push -u zorn master
+
+show remotes
+git remote
+git remote -v
+git remote rm <alias>
+
+cloning a remote
+git clone estabij@zorn.starbrain.com:git/helloworld.git
+this will create the project directory in the directory you are in
+git clone estabij@zorn.starbrain.com:git/helloworld.git test_version
+this will clone all in the test_version directory
+
+logging / status
+git status
+git log
+git log --oneline
+git log --oneline zorn/master -3
+
+fetching from a remote (its not destructive because all changes go into zorn/master not into the master branch)
+git fetch
+this will update zorn/master but not master
+you can see this by typing
+git log --oneline -5 zorn/master
+git log --oneline -5 master
+git log -p
+git branch -r
+git branch -a
+
+git diff zorn/master..master
+
+git merge zorn/master
+
+git pull = git fetch + git merge
+
+show all branches
+git branch
+
+create new branch
+git branch new_feature
+this means we creat a new branch but the working branch is not updated
+to update the working branch we do a 
+git checkout new_feature
+
+checkout + branch:
+git checkout -b somename 
+
+diffen van branches
+git diff branch1..branch2
+(no spaces)
+
+--------
+workflow
+
+git checkout master 
+
+get changes from server
+git fetch
+
+what are the changes?
+git diff origin/master
+(= git diff origin/master..master)
+
+merge differences
+git merge zorn/master
+
+then work on some feature in a different branch
+git checkout -b some_feature
+
+commit changes:
+git commit -m "implementation of some feature"
+
+git fetch
+
+push the experimental branch for coworkers to evaluate
+git push -u origin some_feature
+
+merging the new feature branch into the master branch
+git checkout master
+git merge new_feature
+
+
+
+
+
+* fetch before you work
+* fetch before you push
+* fetch often
+
+
