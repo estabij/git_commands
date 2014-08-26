@@ -12,9 +12,11 @@ git commit -am "message"
 
 setting up a remote
 git remote add zorn estabij@zorn.starbrain.com:git/helloworld.git
+git remote add origin git@github.com:estabij/git_commands.git
 
 pushing to the remote:
 git push -u zorn master
+git push -u origin master
 
 show remotes
 git remote
